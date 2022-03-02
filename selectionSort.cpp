@@ -1,4 +1,4 @@
-//Selection
+//Selection sort
 
 #include<iostream>
 
