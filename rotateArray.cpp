@@ -1,19 +1,29 @@
-//rotate an array, rotate the array to the right by k steps, where k is non-negative.
+
+//rotate an array, rotate the array to the left by k steps, where k is non-negative.
 
 #include<iostream>
 #include<vector>
 
 using namespace std;
 
+
+void leftRotate(int a[], int n)
+{
+    int temp = a[0];
+
+    for(int i = 0;i<n-1;i++)
+    {
+        a[i] = a[i+1];
+    }
+    a[n-1] = temp;
+}
+
 void rotateArray(int v[], int k, int n)
 {
-    int temp[10];
-
-    for(int i = 0;i<n;i++)
+    for(int i =0;i<k;i++)
     {
-        temp[(i+k)%n] = v[i];
+        leftRotate(v,n);
     }
-    v = temp;
 }
 
 void printArray(int a[], int n)
