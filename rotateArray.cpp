@@ -7,7 +7,7 @@
 using namespace std;
 
 
-void leftRotate(int a[], int n)
+/*void leftRotate(int a[], int n)
 {
     int temp = a[0];
 
@@ -16,13 +16,19 @@ void leftRotate(int a[], int n)
         a[i] = a[i+1];
     }
     a[n-1] = temp;
-}
+}*/
 
 void rotateArray(int v[], int k, int n)
 {
     for(int i =0;i<k;i++)
     {
-        leftRotate(v,n);
+        //leftRotate(v,n);
+        int temp = v[0];
+        for(int j = 0;j<n-1;j++)
+        {
+            v[j] = v[j+1];
+        }
+        v[n-1] = temp;
     }
 }
 
