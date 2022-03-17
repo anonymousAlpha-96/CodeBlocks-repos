@@ -1,3 +1,6 @@
+//convert user input values into binary form
+// input as decimal values
+
 #include<iostream>
 #include<math.h>
 
