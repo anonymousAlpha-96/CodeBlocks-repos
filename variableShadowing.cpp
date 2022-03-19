@@ -1,3 +1,6 @@
+//Variable shadow
+//Global/Local Variable diclarations and initializations
+
 #include<iostream>
 
 using namespace std;
@@ -9,8 +12,8 @@ int main()
         cout<<"Global Name Hiding value inside : "<<nameHiding<<endl;
 
         int nameHiding = 25;
-        cout<<"Name Hiding after inner initialization : "<<nameHiding<<endl;
+        cout<<"Name Hiding after local initialization : "<<nameHiding<<endl;
     }
-    cout<<"name hiding value in outer side : "<<nameHiding<<endl;
+    cout<<"name hiding value in  global: "<<nameHiding<<endl;
     return 0;
 }
