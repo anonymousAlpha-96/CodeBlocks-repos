@@ -37,5 +37,4 @@ int main()
     ans = findGCD(n1, n2);
 
     cout<<"GCD of Entered numbers are : "<<ans<<endl;
-
 }
