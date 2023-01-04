@@ -1,60 +1,60 @@
- #include<iostream>
+/*
+	* Application for binary search
+	* Tested Okay!.
+*/
+
+#include<iostream>
+#include<algorithm>
 
 using namespace std;
 
-void printArray(int a[], int n)
+//function to display the array elements
+void sortPrint(int a[], int asize)
 {
-    cout<<"Array Elements are : ";
-    for(int i = 0;i<n;i++)
-    {
-        cout<<a[i]<<" ";
-    }
+	for(int i  = 0; i<asize; ++i) //++i
+	{
+		cout<<a[i]<<" ";
+	}
 }
 
-int BinarySearch(int a[], int n, int k)
+//main part
+int main()
 {
-    int s = 0;
-    int e = n-1;
+	int a_size;
+	int array[100];
+	int search;
 
-    int mid = (s+e)/2;
+	//input for array size
+	cout<<"Enter the array size : ";
+	cin>>a_size;
 
-    while(s <= e)
-    {
-        if(a[mid] == k)
-        {
-            return mid;
-        }
+	//input to the array
+	cout<<"Enter the elements of array : ";
+	for(int i = 0; i<a_size; i++)
+	{
+		cin>>array[i];
+	}
 
-        if(k > a[mid])
-        {
-            s = mid + 1;
-        }
-        else{
-            e = mid - 1;
-        }
-        mid = (s+e)/2;
-    }
-    return -1;
+	//prints the array values before SORT
+	cout<<"Array values before sorting : "<<endl;
+	sortPrint(array, a_size);
 
-}
-int  main()
-{
-    int Size;
-    int arr[10];
-    int key;
+	//Sort functionality calling
+	sort(array,array + a_size);
 
-    cout<<"Enter the Array Size : ";
-    cin>>Size;
+	//prints the array values after SORT
+	cout<<"\nArray values after sorting : "<<endl;
+	sortPrint(array, a_size);
+	cout<<endl;
 
-    cout<<"Enter the Array Elements : ";
-    for(int i = 0; i<Size;i++)
-    {
-        cin>>arr[i];
-    }
-    cout<<"Enter the Element to be search : ";
-    cin>>key;
+	cout<<"Enter the element to be searched in the array :"<<endl;
+	cin>>search;
 
-    int index = BinarySearch(arr, Size, key);
-    //printArray(arr, Size);
-    cout<<"Index of Searched Element is  : "<<index;
+	if(binary_search(array, array+a_size, search))
+		cout<<"Element found in the array"<<endl;
+	else
+		cout<<"Element not found in the array"<<endl;
+
+
+	return 0;
 }
