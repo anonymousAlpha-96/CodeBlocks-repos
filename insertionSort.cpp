@@ -1,54 +1,64 @@
-//insertion sort
+/*
+	* insertion sort Algorithm
+	* Tested Okay
+*/
 
 #include<iostream>
+#include<algorithm>
 
 using namespace std;
 
-void insertionSort(int n, int a[])
-{
-    for(int i = 1;i<n;i++)
-    {
-        int temp = a[i];
-        int j = i-1;
-        for(;j>=0;j--)
-        {
-            if(a[j]>temp)
-            {
-                a[j+1]=a[j];
-            }
-            else
-            {
-                   break;
-            }
-        }
-        a[j+1]=temp;
-    }
-}
+//function declaration
+void sortPrint(int a[], int asize);
 
-int printArray(int a[], int n)
-{
-    cout<<"Sorted Array Elements are : ";
-    for(int i = 0;i<n;i++)
-    {
-        cout<<a[i]<<" ";
-    }
-}
-
-
+//main part
 int main()
 {
-    int Size;
-    int arr[10];
+	int a_size;
+	int temp;
+	int j;
+	int array[10];
 
-    cout<<"Enter the Size of an Array : ";
-    cin>>Size;
+	cout<<"Enter the Size of array : ";
+	cin>>a_size;
 
-    cout<<"Enter the Array Elements : ";
-    for(int i = 0; i<Size; i++)
-    {
-        cin>>arr[i];
-    }
+	//user input to array
+	cout<<"\nEnter the elements : ";
+	for(int i = 0;i<a_size;i++)
+	{
+		cin>>array[i];
+	}
 
-    insertionSort(Size,arr);
-    printArray(arr,Size);
+	//calls the print array function before SORT
+	cout<<"Array values before sorting : "<<endl;
+	sortPrint(array, a_size);
+
+	//insertion sort algorithm
+	for(int i = 1;i<=a_size-1;i++)
+	{
+		temp = array[i];
+		j = i-1;
+		while((temp < array[j]) && (j>=0))
+		{
+			array[j+1] = array[j];
+			j = j-1;
+		}
+		array[j+1] = temp;
+	}
+
+	//calls the print array function after SORT
+	cout<<"\nArray values after sorting : "<<endl;
+	sortPrint(array, a_size);
+	cout<<endl;
+
+	return 0;
+
+}
+//function to display the array elements
+void sortPrint(int a[], int asize)
+{
+	for(int i  = 0; i<asize; ++i) //++i
+	{
+		cout<<a[i]<<" ";
+	}
 }
